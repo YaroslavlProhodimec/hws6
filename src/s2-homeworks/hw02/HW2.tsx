@@ -17,7 +17,7 @@ import s2 from '../../s1-main/App.module.css'
 * */
 
 // types
-export type AffairPriorityType = 'low' | 'middle' |  'high'// need to fix any
+export type AffairPriorityType = 'low' |'middle' | 'high'// need to fix any
 export type AffairType = {
     _id: number // need to fix any
     name: string // need to fix any
@@ -35,18 +35,21 @@ let defaultAffairs: Array<AffairType> = [ // need to fix any
 ]
 
 // pure helper functions
-export let filterAffairs = (affairs: AffairType[], filter: FilterType): any => { // need to fix any
-   let  partfilter = affairs
-    if(filter === 'high') {
-        partfilter = affairs.filter((a: { priority: string }) =>  a.priority === 'high' )
+export let filterAffairs = (affairs: AffairType[], filter: FilterType):  AffairType[] => { // need to fix any
+   // let  partfilter = affairs
+   //  if(filter === 'high') {
+   //      partfilter = affairs.filter((a: { priority: string }) =>  a.priority === 'high' )
+   //  }
+   //  if(filter === 'middle') {
+   //       partfilter =   affairs.filter((a: { priority: string }) => a.priority === 'middle' )
+   //  }
+   //  if(filter === 'low') {
+   //       partfilter =  affairs.filter((a: { priority: string }) => a.priority === 'low' )
+   //  }
+    if(filter!=='all'){
+        return affairs.filter((a:AffairType)=>a.priority===filter)
     }
-    if(filter === 'middle') {
-         partfilter =   affairs.filter((a: { priority: string }) => a.priority === 'middle' )
-    }
-    if(filter === 'low') {
-         partfilter =  affairs.filter((a: { priority: string }) => a.priority === 'low' )
-    }
-    return  partfilter  // need to fix
+        return affairs;
 }
 export const deleteAffair = (affairs: AffairType[], _id: number): any => { // need to fix any
     let partDelete = affairs.filter((a: { _id: number }) => a._id !== _id)
