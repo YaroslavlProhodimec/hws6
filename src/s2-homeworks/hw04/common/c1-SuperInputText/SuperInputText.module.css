@@ -2,19 +2,40 @@
 }
 
 .input {
+    margin-left: 67px;
+
+    overflow : hidden;
+    resize : none;
+    width: 372px;
+    height: 36px;
+color: #d3c9c9;
+    border-radius:10px ;
+border: 1px solid gray;
+    opacity:0.3;
 }
 
 .inputWrapper {
+display: flex;
+    flex-direction: column-reverse;
+
 }
 
 .superInput {
 }
 
 .errorInput {
+    border: 3px solid #7c1f1f;
 }
 
 .errorInput:focus {
+    border: 1px solid darkred;
 }
 
 .error {
+    color: darkred;
+    margin-left: 70px;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    font-weight: 400;;
 }

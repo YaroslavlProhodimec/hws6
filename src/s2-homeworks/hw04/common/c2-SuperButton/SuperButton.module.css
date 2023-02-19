@@ -2,34 +2,76 @@
 }
 
 .disabled {
+    cursor: not-allowed;
+    background-color: rgba(23, 146, 241, 0.25) !important;
+    pointer-events:none;
 }
 
 .secondary {
+    width: 176px;
+    height: 30px;
+    border: 1px solid #0066CC;
+    border-radius: 3px;
+    background-color: white;
+    color: #0059b3;
 }
 
 .default {
+
+    justify-content: center;
+    align-items: center;
+
+    width: 132px;
+    height: 30px;
+    color: #FFFFFF;
+    border: 0;
+
+    background: #0066CC;
+    border-radius: 3px;
+    transition: 2.9ms;
+
 }
 
 .red {
+    border: 0;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 132px;
+    height: 30px;
+    color: #FFFFFF;
+
+
+    background: #fa077f;
+    border-radius: 3px;
+    transition: 2.9ms;
 }
 
 .default:hover {
+    transform: scale(1.07);
 }
 
 .red:hover {
+    transform: scale(1.07);
 }
 
 .secondary:hover {
+    background-color: #94c0f1;
 }
 
 
 .default:active {
+    background: #0031ff;
 }
 
 .secondary:active {
+    background-color: #4292ee;
+
 }
 
 .red:active {
+    background: #6b0c0c;
 }
 
 .button:disabled {
