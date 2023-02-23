@@ -47,6 +47,9 @@
     border-radius: 3px;
     transition: 2.9ms;
 }
+.red:active {
+    background: #6b0c0c;
+}
 
 .default:hover {
     transform: scale(1.07);
@@ -70,9 +73,7 @@
 
 }
 
-.red:active {
-    background: #6b0c0c;
-}
+
 
 .button:disabled {
 }
