@@ -23,7 +23,7 @@ function Pages(props:any) {
 
             {/*Routes выбирает первый подходящий роут*/}
             <Routes>
-               <Route path={"/"} element={ <Navigate to={PATH.JUNIOR_PLUS}/>}/>
+               <Route path={"/"} element={ <Navigate to={PATH.PRE_JUNIOR}/>}/>
 
 
                 {/*роутинг будут писать студенты*/}
