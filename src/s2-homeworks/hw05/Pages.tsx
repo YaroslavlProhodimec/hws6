@@ -3,8 +3,8 @@ import {Navigate, Route, Routes,} from 'react-router-dom'
 import PreJunior from './pages/PreJunior'
 import Junior from './pages/Junior'
 import JuniorPlus from './pages/JuniorPlus'
+import Error404 from './pages/Error404'
 
-import {Error} from "./pages/Erorr";
 
 export const PATH = {
     PRE_JUNIOR: '/pre-junior',
@@ -32,7 +32,7 @@ function Pages() {
                 {/*<Route ...*/}
                 {/*<Route ...*/}
                 {/*<Route ...*/}
-                <Route path={PATH.ERROR} element={<Error/>}/>
+                <Route path={PATH.ERROR} element={<Error404/>}/>
                 <Route path={"*"} element={<Navigate to={PATH.ERROR}/>}/>
                 {/*роут для несуществующей страницы должен о трисовать <Error404 />*/}
 
