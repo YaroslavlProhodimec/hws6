@@ -1,37 +1,32 @@
 import React from 'react'
-import { Routes, Route, Navigate ,} from 'react-router-dom'
-import Error404 from './pages/Error404'
+import {Navigate, Route, Routes,} from 'react-router-dom'
 import PreJunior from './pages/PreJunior'
 import Junior from './pages/Junior'
 import JuniorPlus from './pages/JuniorPlus'
-import {Header} from "./header/Header";
-import {Sidebar} from "./sidebar/Sidebar";
+
 import {Error} from "./pages/Erorr";
 
 export const PATH = {
     PRE_JUNIOR: '/pre-junior',
     JUNIOR: '/junior',
-    JUNIOR_PLUS: '/junior-plus',
+    JUNIOR_PLUS: '/junior_plus',
 }
-type PropsType = {
-    open: boolean
-    handleClose: () => void
-}
-function Pages(props:any) {
+
+function Pages() {
     return (
         <div>
 
             {/*Routes выбирает первый подходящий роут*/}
             <Routes>
-               <Route path={"/"} element={ <Navigate to={PATH.PRE_JUNIOR}/>}/>
+                <Route path={"/"} element={<Navigate to={PATH.PRE_JUNIOR}/>}/>
 
 
                 {/*роутинг будут писать студенты*/}
                 {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу /pre-junior*/}
                 {/*<Route ...*/}
-                <Route path={PATH.PRE_JUNIOR} element={ <PreJunior/>}/>
-                <Route path={PATH.JUNIOR} element={ <Junior/>}/>
-                <Route path={PATH.JUNIOR_PLUS} element={ <JuniorPlus/>}/>
+                <Route path={PATH.PRE_JUNIOR} element={<PreJunior/>}/>
+                <Route path={PATH.JUNIOR} element={<Junior/>}/>
+                <Route path={PATH.JUNIOR_PLUS} element={<JuniorPlus/>}/>
                 {/*роуты для /pre-junior, /junior, /junior-plus*/}
                 {/*<Route ...*/}
                 {/*<Route ...*/}
