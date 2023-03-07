@@ -11,6 +11,7 @@ export function restoreState<T>(key: string, defaultState: T) {
     const stateAsString = localStorage.getItem(key)
     if (stateAsString !== null) state = JSON.parse(stateAsString) as T
     return state
+
 }
 
 // ---------------------------------------------------------------------------------------------------------------
