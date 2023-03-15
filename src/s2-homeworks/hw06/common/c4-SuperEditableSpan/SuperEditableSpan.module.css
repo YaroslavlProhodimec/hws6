@@ -1,11 +1,23 @@
 .spanBlock {
+    display: flex;
+    text-align: center;
+    ;
+
 }
 
 .span {
+    padding-top: 2px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left:10px ;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .input {
+    margin-top: 130px;
 }
 
 .pen {
+
 }
