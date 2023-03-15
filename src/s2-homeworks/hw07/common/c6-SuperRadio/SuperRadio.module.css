@@ -1,15 +1,23 @@
 .radio {
+    background-color: #18d7ea;
 }
 
 .radio::before {
+    background-color: #18d7ea;
+    color: #18d7ea;
+
 }
 
 
 .radio:checked::before {
+    background-color: #18d7ea;
+    color: #18d7ea;
 }
 
 .label {
+
 }
 
 .options {
+    background-color: #18d7ea;
 }
