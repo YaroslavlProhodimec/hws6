@@ -10,14 +10,14 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
              switch (action.payload){ case "up": {
                  const collatore = new Intl.Collator('ru-RU')
                 let editState = state.sort((a,b)=>collatore.compare(a.name,b.name))
-
-                 return editState}
+                 let finalEdit = editState.map(el=>el)
+                 return finalEdit}
              }
             switch (action.payload){ case "down": {
                 const collatore = new Intl.Collator('ru-RU')
                 let editState = state.sort((a,b)=>collatore.compare(b.name,a.name))
-
-                return editState
+                            let finalEdit = editState.map(el=>el)
+                return finalEdit
                }
             }
                  return state // need to fix
