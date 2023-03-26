@@ -1,3 +1,9 @@
 import s from './Loader.module.css'
+import React from "react";
+import Logo from './Logo.svg'
+import Spinn from "./Spinn.png";
+export const Loader = () =>  {
+    return (
 
-export const Loader = () => <div className={s.loader}/>
+        <img className={s.preload} src={Spinn}/>)
+}
