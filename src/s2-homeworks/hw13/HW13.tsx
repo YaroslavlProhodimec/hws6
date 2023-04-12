@@ -19,7 +19,7 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
-
+    const[toggle,setToggle] =useState(false)
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -30,18 +30,42 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-
+        setToggle(true)
         axios
-            .post(url, {success: x})
+            .post(url,{success: x},{withCredentials:true,headers:{
+                    'API-KEY': 'a4e56366-fe3d-4e5d-8c7b-0714b5ffdb22',
+                }})
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
+               setText('...всё ок)')
+                setInfo('код 200 - обычно означает что скорее всего всё ок')
+                setToggle(false)
                 // дописать
 
             })
             .catch((e) => {
-                // дописать
-
+                if(x===false){
+                    setCode('Ошибка 400!')
+                    setImage(error400)
+                    setText('Ты не отправил success в body вообще!')
+                    setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
+                    setToggle(false)
+                }
+                if(x===undefined){
+                    setCode('Ошибка 500!')
+                    setImage(error500)
+                    setText('эмитация ошибки на сервере!')
+                    setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
+                    setToggle(false)
+                }
+                if(x===null){
+                    setCode('Error!')
+                    setImage(error500)
+                    setText('Network Error')
+                    setInfo('AxiosError)')
+                    setToggle(false)
+                }
             })
     }
 
@@ -55,6 +79,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={toggle}
                         // дописать
 
                     >
@@ -64,6 +89,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={toggle}
                         // дописать
 
                     >
@@ -73,6 +99,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={toggle}
                         // дописать
 
                     >
@@ -82,7 +109,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
+                        disabled={toggle}
 
                     >
                         Send null
