@@ -32,9 +32,7 @@ const HW13 = () => {
         setInfo('...loading')
         setToggle(true)
         axios
-            .post(url,{success: x},{withCredentials:true,headers:{
-                    'API-KEY': 'a4e56366-fe3d-4e5d-8c7b-0714b5ffdb22',
-                }})
+            .post(url,{success: x})
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
@@ -61,7 +59,7 @@ const HW13 = () => {
                 }
                 if(x===null){
                     setCode('Error!')
-                    setImage(error500)
+                    setImage(errorUnknown)
                     setText('Network Error')
                     setInfo('AxiosError)')
                     setToggle(false)
