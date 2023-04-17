@@ -3,13 +3,13 @@
 }
 
 .input {
-
+color: black;
 
     overflow : hidden;
     resize : none;
     width: 350px;
     height: 36px;
-color: #d3c9c9;
+
     border-radius:10px ;
 border: 1px solid gray;
     opacity:0.3;
@@ -23,7 +23,9 @@ display: flex;
 }
 
 .superInput {
-
+    padding-left: 15px;
+    color: black;
+    text-color:black
 }
 
 .errorInput {
