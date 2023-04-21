@@ -30,7 +30,7 @@ type ParamsType = {
 const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
+            'https://samurai.it-incubator.io/api/3.0/homework/test3',
             {params}
         )
         .catch((e) => {
@@ -47,27 +47,33 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = (params: ParamsType) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
                 // делает студент
+                if(res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
 
+                }
                 // сохранить пришедшие данные
-
+                setLoading(false)
                 //
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
+        console.log(newCount)
         // setPage(
+        setPage(newPage)
         // setCount(
-
+        setCount(newCount)
         // sendQuery(
+        sendQuery({sort:sort,page: newPage,count:newCount})
         // setSearchParams(
-
+        setSearchParams({...Object.fromEntries(searchParams),page:newPage.toString()})
         //
     }
 
@@ -75,17 +81,19 @@ const HW15 = () => {
         // делает студент
 
         // setSort(
+        setSort(newSort)
         // setPage(1) // при сортировке сбрасывать на 1 страницу
-
+        setPage(1)
         // sendQuery(
+        sendQuery({sort:newSort, page,count})
         // setSearchParams(
-
+        setSearchParams({...Object.fromEntries(searchParams),count:newSort})
         //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({page: +params.page, count: +params.count, sort})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
